@@ -1,0 +1,410 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "671b63ae-e33a-428f-938b-b9d81b428172",
+   "metadata": {},
+   "source": [
+    "ML ASSIGNMENT NO.2\n",
+    "\n",
+    "                            - ARBAAZ KHAN (J071)\n",
+    "Task: Prove multiplication properties of matrices                            "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "7e202feb-a361-4763-89b8-820eeff699ff",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "A = np.array([[1,2,3],[4,5,6],[7,8,9]])\n",
+    "B = np.array([[2,5,6],[8,10,12],[14,16,18]])\n",
+    "C = np.array([[1,3,5],[7,9,11],[13,15,17]])\n",
+    "I = np.identity(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "17d62e18-c9b6-4abb-980c-3e0546c99429",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Matrix A : \n",
+      " [[1 2 3]\n",
+      " [4 5 6]\n",
+      " [7 8 9]]\n",
+      "Matrix B : \n",
+      " [[ 2  5  6]\n",
+      " [ 8 10 12]\n",
+      " [14 16 18]]\n",
+      "Matrix C : \n",
+      " [[ 1  3  5]\n",
+      " [ 7  9 11]\n",
+      " [13 15 17]]\n",
+      "Matrix I : \n",
+      " [[1. 0. 0.]\n",
+      " [0. 1. 0.]\n",
+      " [0. 0. 1.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('Matrix A : \\n',A)\n",
+    "print('Matrix B : \\n',B)\n",
+    "print('Matrix C : \\n',C)\n",
+    "print('Matrix I : \\n',I)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "43e9ebd8-ce34-479d-9911-848a19a935e3",
+   "metadata": {},
+   "source": [
+    "Commutative property is not applicable to matrix multiplication"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "66f65d31-d856-48a4-966b-04bfa546303f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A.B : \n",
+      " [[ 60  73  84]\n",
+      " [132 166 192]\n",
+      " [204 259 300]]\n",
+      "B.A : \n",
+      " [[ 64  77  90]\n",
+      " [132 162 192]\n",
+      " [204 252 300]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "ABdot = A.dot(B)\n",
+    "BAdot = B.dot(A)\n",
+    "print('A.B : \\n',ABdot)\n",
+    "print('B.A : \\n',BAdot)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "868ad9ee-4f87-4a05-b2c7-2f4b5721be47",
+   "metadata": {},
+   "source": [
+    "Associative property"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "50020132-ebf1-4e44-a547-811912e7ad4e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "AB_C : \n",
+      " [[1663 2097 2531]\n",
+      " [3790 4770 5750]\n",
+      " [5917 7443 8969]]\n",
+      "A_BC : \n",
+      " [[1663 2097 2531]\n",
+      " [3790 4770 5750]\n",
+      " [5917 7443 8969]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "AB_C = np.dot(A,B).dot(C)\n",
+    "A_BC = A.dot(np.dot(B,c))\n",
+    "print('AB_C : \\n', AB_C)\n",
+    "print('A_BC : \\n',A_BC)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "94ce1670-4696-4466-81bb-f936c08377ef",
+   "metadata": {},
+   "source": [
+    "Distributive property"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "112999da-57f6-49f1-8dd9-64c9b8385e85",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A.(B+C) : \n",
+      " [[114 139 162]\n",
+      " [249 313 369]\n",
+      " [384 487 576]]\n",
+      "A.B + A.C : \n",
+      " [[114 139 162]\n",
+      " [249 313 369]\n",
+      " [384 487 576]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = np.dot(A, B+C)\n",
+    "y = np.dot(A,B) + np.dot(A,C)\n",
+    "print('A.(B+C) : \\n',x)\n",
+    "print('A.B + A.C : \\n',y)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "460e6366-119a-4903-a260-588152fc9067",
+   "metadata": {},
+   "source": [
+    "Identity Property"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "a27552ae-6bc9-4f52-a2c8-ae986063e6fe",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " A.I : \n",
+      " [[1. 2. 3.]\n",
+      " [4. 5. 6.]\n",
+      " [7. 8. 9.]]\n",
+      " I.A : \n",
+      " [[1. 2. 3.]\n",
+      " [4. 5. 6.]\n",
+      " [7. 8. 9.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "AI = np.dot(A,I)\n",
+    "IA = np.dot(I,A)\n",
+    "print(\" A.I : \\n\",AI)\n",
+    "print(\" I.A : \\n\",IA)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f776a7d4-5e7f-40e0-b14a-08036d833297",
+   "metadata": {},
+   "source": [
+    "Multiplicative property of zero"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "5a7dda0c-f948-4b9e-ba58-db3c0f4a04d0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A.0 : \n",
+      " [[0. 0. 0.]\n",
+      " [0. 0. 0.]\n",
+      " [0. 0. 0.]]\n",
+      "0.A : \n",
+      " [[0. 0. 0.]\n",
+      " [0. 0. 0.]\n",
+      " [0. 0. 0.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "z = np.zeros(9).reshape(3,3)\n",
+    "lhs = np.dot(A,z)\n",
+    "rhs = np.dot(z,A)\n",
+    "print(\"A.0 : \\n\",lhs)\n",
+    "print(\"0.A : \\n\",rhs)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d74054d7-ef85-4feb-b141-491d5c305c0c",
+   "metadata": {},
+   "source": [
+    "Dimensions on matrix multiplication"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "aa14aafd-77ab-4bcb-a56d-eaa311b1cb6c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " 5x7 matrix X 7x3 matrix = 5x3 matrix\n"
+     ]
+    }
+   ],
+   "source": [
+    "m,n,k = 5,7,3\n",
+    "mat_m_n = np.random.randn(m, n)\n",
+    "mat_n_k = np.random.randn(n, k)\n",
+    "mat_mult = np.dot(mat_m_n, mat_n_k)\n",
+    "result_x, result_y = mat_mult.shape\n",
+    "print(f' {m}x{n} matrix X {n}x{k} matrix = {result_x}x{result_y} matrix')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a840ea2f-b13c-4899-96d2-da7f2c0bb4e6",
+   "metadata": {},
+   "source": [
+    "Task: Inverse of a matrix"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "d4be51d2-cfdf-4321-944c-2b67bd82b2fa",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 3.15251974e+15, -6.30503948e+15,  3.15251974e+15],\n",
+       "       [-6.30503948e+15,  1.26100790e+16, -6.30503948e+15],\n",
+       "       [ 3.15251974e+15, -6.30503948e+15,  3.15251974e+15]])"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "A_inv=np.linalg.inv(A) \n",
+    "A_inv"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5e783bcf-cc10-4281-8a32-b4d47bf812f5",
+   "metadata": {},
+   "source": [
+    "Task: Comparison of time between numpy and loops"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e03f6918-a1ae-4427-874b-473b69cfe4c4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import time\n",
+    "size = 10000\n",
+    "numpy_mat_A = np.random.randn(size, size) \n",
+    "numpy_mat_B = np.random.randn(size, size) \n",
+    "list_mat_A = [list(i) for i in numpy_mat_A] \n",
+    "list_mat_B = [list(i)for i in numpy_mat_B]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "64180a7c-9312-4f5d-98fc-f590a921a860",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "start_loop = time.time() \n",
+    "list_mat_C = []\n",
+    "for i in range(size) :\n",
+    "    row = []\n",
+    "    for j in range(size) :\n",
+    "        row.append(list_mat_A[i][j] + list_mat_B[i][j]) \n",
+    "    list_mat_C.append(row)\n",
+    "end_loop = time.time()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "efcff800-e837-43e8-9505-cb30e706bdda",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "start_numpy = time.time()\n",
+    "numpy_mat_C = numpy_mat_A + numpy_mat_B \n",
+    "end_numpy = time.time()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "50c528d4-46f5-4ee7-8911-463836b9edaf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print('Time for loops : ', end_loop - start_loop) \n",
+    "print('Time for numpy : ', end_numpy - start_numpy)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "21c9c5d7-de17-4786-8647-a541e49c11db",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "dd8f8f7a-21c3-470c-856c-03a563c90654",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
