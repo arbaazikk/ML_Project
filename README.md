@@ -12,21 +12,21 @@ Incentives:
 At lenskart and various other companies selling sunglasses, to provide an AR view.
 Automated Immigration centers at airports.
 Face unlock features in phones.
-
+_____________________________________________________________________________________________________________________
 
 MACHINE LEARNING - SEM 5
 
-API
+1.API
 
-Decision Tree
+2.Decision Tree
 
-GridSearch CV
+3.GridSearch CV
 
-Scikit learn (Regression and Regularization)
+4.Scikit learn (Regression and Regularization)
 
-SVC
+5.SVC
 
-SVR
+6.SVR
 
 Homework Assignments
 
